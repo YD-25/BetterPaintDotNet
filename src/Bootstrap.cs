@@ -118,5 +118,5 @@ public sealed class LayerChannelLiveSupportInfo : IPluginSupportInfo
     public Version Version =>
         typeof(LayerChannelLiveSupportInfo).Assembly.GetName().Version ?? new Version(1, 0, 0, 0);
 
-    public Uri? WebsiteUri => new Uri("https://github.com/YD-25/LayerChannelLive");
+    public Uri? WebsiteUri => new Uri("https://github.com/YD-25/BetterPaintDotNet");
 }

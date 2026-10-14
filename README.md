@@ -1,10 +1,10 @@
-# 更好的 Paint.NET（LayerChannelLive）
+# 更好的 Paint.NET (BetterPaintDotNet)
 
 给 Paint.NET 增加通道预览与编辑、DDS 格式查看和拖动吸附。功能直接放在图层窗口和移动工具里，方便处理游戏贴图，不用反复拆分、导出通道。
 
 ## 安装
 
-在 [Releases](https://github.com/YD-25/LayerChannelLive/releases) 下载文件名含 `InstallPackage` 的 ZIP 安装包并解压，运行 `install.bat`。脚本会关闭 Paint.NET、安装插件，再启动软件；安装前请保存正在编辑的图片。卸载运行 `uninstall.bat`。
+在 [Releases](https://github.com/YD-25/BetterPaintDotNet/releases) 下载文件名含 `InstallPackage` 的 ZIP 安装包并解压，运行 `install.bat`。脚本会关闭 Paint.NET、安装插件，再启动软件；安装前请保存正在编辑的图片。卸载运行 `uninstall.bat`。
 
 已测试：Paint.NET **5.1.12**，Windows 10 / 11 x64。源码编译目标为 `net9.0-windows`。
 
@@ -37,6 +37,6 @@
 
 ![拖动与尺寸吸附](assets/snapping-features.gif)
 
-遇到问题请在 [Issues](https://github.com/YD-25/LayerChannelLive/issues) 中说明 Paint.NET 版本、操作步骤，能附上截图或录屏更好。
+遇到问题请在 [Issues](https://github.com/YD-25/BetterPaintDotNet/issues) 中说明 Paint.NET 版本、操作步骤，能附上截图或录屏更好。
 
 许可证：[MIT](LICENSE)。
