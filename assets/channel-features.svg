@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="rGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f85149"/>
+      <stop offset="100%" stop-color="#ff7b72"/>
+    </linearGradient>
+    <linearGradient id="gGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="bGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="aGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8957e5"/>
+      <stop offset="100%" stop-color="#bc8cff"/>
+    </linearGradient>
+    <linearGradient id="glowEffect" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#bc8cff" stop-opacity="0.8"/>
+    </linearGradient>
+    <!-- Filters -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #f0f6fc; }
+    .subtitle { font-size: 13px; fill: #8b949e; }
+    .section-title { font-size: 16px; font-weight: 600; fill: #58a6ff; }
+    .card-label { font-size: 13px; font-weight: 600; fill: #c9d1d9; }
+    .badge { font-size: 11px; font-weight: 600; fill: #ffffff; }
+    .desc { font-size: 12px; fill: #8b949e; }
+    .code { font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; fill: #79c0ff; }
+  </style>
+
+  <!-- Container -->
+  <rect width="960" height="520" rx="16" fill="url(#bgGrad)" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Top Header -->
+  <g transform="translate(40, 32)">
+    <circle cx="10" cy="10" r="10" fill="#238636"/>
+    <text x="32" y="16" class="title">图层与实时通道特性 (Layer &amp; Live Channels)</text>
+    <text x="32" y="38" class="subtitle">深度接管 Paint.NET 原生图层窗口 · 支持单通道效果滤镜与通道自由拖拽排序</text>
+  </g>
+
+  <!-- Left Column: Feature 1 - Effects on Active Channel -->
+  <g transform="translate(40, 95)" filter="url(#dropShadow)">
+    <rect width="425" height="385" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(24, 24)">
+      <!-- Section Header -->
+      <rect x="0" y="0" width="4" height="18" rx="2" fill="#58a6ff"/>
+      <text x="14" y="15" class="section-title">1. 原生效果/调整直接作用于通道</text>
+      <text x="14" y="34" class="desc">点击通道即进入通道视图，应用反色/模糊/曲线等仅修改当前通道</text>
+
+      <!-- Channel List Simulation -->
+      <g transform="translate(0, 50)">
+        <rect width="180" height="235" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <rect x="0" y="0" width="180" height="28" rx="8" fill="#161b22"/>
+        <text x="12" y="19" class="card-label" font-size="12px">图层与通道窗口</text>
+
+        <!-- Base Layer item -->
+        <rect x="10" y="38" width="160" height="30" rx="6" fill="#21262d" stroke="#30363d"/>
+        <rect x="16" y="44" width="18" height="18" rx="3" fill="#30363d"/>
+        <text x="42" y="57" class="card-label" font-size="12px">图层 1 (DDS 主图层)</text>
+
+        <!-- Active R Channel -->
+        <rect x="22" y="76" width="148" height="32" rx="6" fill="#f85149" fill-opacity="0.18" stroke="#f85149" stroke-width="1.5"/>
+        <rect x="28" y="83" width="18" height="18" rx="3" fill="url(#rGrad)"/>
+        <text x="52" y="96" fill="#ff7b72" font-size="12px" font-weight="600">R 红色通道</text>
+        <rect x="122" y="83" width="40" height="18" rx="4" fill="#f85149"/>
+        <text x="128" y="96" class="badge">活动</text>
+
+        <!-- G Channel -->
+        <rect x="22" y="114" width="148" height="30" rx="6" fill="#161b22" stroke="#21262d"/>
+        <rect x="28" y="120" width="18" height="18" rx="3" fill="url(#gGrad)"/>
+        <text x="52" y="133" class="desc" font-size="12px">G 绿色通道</text>
+
+        <!-- B Channel -->
+        <rect x="22" y="150" width="148" height="30" rx="6" fill="#161b22" stroke="#21262d"/>
+        <rect x="28" y="156" width="18" height="18" rx="3" fill="url(#bGrad)"/>
+        <text x="52" y="169" class="desc" font-size="12px">B 蓝色通道</text>
+
+        <!-- A Channel -->
+        <rect x="22" y="186" width="148" height="30" rx="6" fill="#161b22" stroke="#21262d"/>
+        <rect x="28" y="192" width="18" height="18" rx="3" fill="url(#aGrad)"/>
+        <text x="52" y="205" class="desc" font-size="12px">A Alpha 通道</text>
+      </g>
+
+      <!-- Arrow & Process Box -->
+      <g transform="translate(195, 60)">
+        <path d="M 0 50 L 30 50" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="4 2"/>
+        <polygon points="30,46 38,50 30,54" fill="#58a6ff"/>
+
+        <!-- Paint.NET Effect Dialog Card -->
+        <g transform="translate(45, 0)">
+          <rect width="135" height="110" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+          <rect x="0" y="0" width="135" height="24" rx="8" fill="#1f6feb" fill-opacity="0.25"/>
+          <text x="10" y="17" fill="#58a6ff" font-size="11px" font-weight="600">Paint.NET 效果控件</text>
+          
+          <rect x="12" y="34" width="111" height="16" rx="4" fill="#21262d"/>
+          <text x="18" y="46" fill="#c9d1d9" font-size="10px">反色 / 曲线调整</text>
+
+          <rect x="12" y="56" width="111" height="16" rx="4" fill="#21262d"/>
+          <text x="18" y="68" fill="#c9d1d9" font-size="10px">高斯模糊 / 噪点</text>
+
+          <rect x="12" y="78" width="50" height="20" rx="4" fill="#238636"/>
+          <text x="23" y="92" class="badge">应用</text>
+        </g>
+
+        <!-- Commit arrow down -->
+        <path d="M 112 115 L 112 145" stroke="#3fb950" stroke-width="2" stroke-dasharray="3 2"/>
+        <polygon points="108,145 112,153 116,145" fill="#3fb950"/>
+
+        <!-- Result Box -->
+        <g transform="translate(45, 158)">
+          <rect width="135" height="65" rx="8" fill="#0d1117" stroke="#3fb950" stroke-width="1.2"/>
+          <text x="10" y="22" fill="#3fb950" font-size="11px" font-weight="600">✓ 效果已烘焙到通道</text>
+          <text x="10" y="40" class="desc" font-size="10.5px">主图层依然全彩合成</text>
+          <text x="10" y="55" class="code" font-size="10px">Ctrl+Z 完美撤回</text>
+        </g>
+      </g>
+
+      <!-- Bottom Hint -->
+      <g transform="translate(0, 305)">
+        <rect width="377" height="32" rx="6" fill="#161b22" stroke="#30363d"/>
+        <circle cx="16" cy="16" r="6" fill="#58a6ff" fill-opacity="0.3"/>
+        <text x="13" y="20" fill="#58a6ff" font-size="11px" font-weight="bold">i</text>
+        <text x="32" y="20" class="desc" font-size="11.5px">切换回主图层时自动合并提交，完全兼容宿主撤销树。</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: Feature 2 - Drag & Drop Channel Reorder -->
+  <g transform="translate(495, 95)" filter="url(#dropShadow)">
+    <rect width="425" height="385" rx="12" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(24, 24)">
+      <!-- Section Header -->
+      <rect x="0" y="0" width="4" height="18" rx="2" fill="#3fb950"/>
+      <text x="14" y="15" class="section-title">2. 通道自由拖拽互换顺序</text>
+      <text x="14" y="34" class="desc">鼠标拖拽通道项，直接置换/重新分配颜色与Alpha通道数据</text>
+
+      <!-- Interactive Drag Diagram -->
+      <g transform="translate(10, 56)">
+        <!-- Channel R -->
+        <rect x="0" y="0" width="160" height="42" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
+        <rect x="10" y="10" width="22" height="22" rx="4" fill="url(#rGrad)"/>
+        <text x="42" y="24" class="card-label">R 通道 (粗糙度)</text>
+        <text x="42" y="36" class="desc" font-size="10px">Channel #0</text>
+
+        <!-- Channel G (Being Dragged) -->
+        <g transform="translate(30, 52)">
+          <!-- Drag shadow / placeholder -->
+          <rect x="-30" y="0" width="160" height="42" rx="8" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <text x="10" y="25" fill="#58a6ff" font-size="11px">释放以互换</text>
+
+          <!-- Floating card -->
+          <g transform="translate(10, 10)">
+            <rect width="160" height="42" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="2" filter="url(#dropShadow)"/>
+            <rect x="10" y="10" width="22" height="22" rx="4" fill="url(#gGrad)"/>
+            <text x="42" y="24" fill="#3fb950" font-weight="600" font-size="12px">G 通道 (金属度)</text>
+            <text x="42" y="36" class="desc" font-size="10px">正在拖拽...</text>
+            <!-- Cursor icon -->
+            <polygon points="148,22 154,34 149,34 146,40 143,39 146,33 141,33" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+          </g>
+        </g>
+
+        <!-- Swap Curved Arrow -->
+        <path d="M 215 75 C 255 75, 255 175, 215 175" fill="none" stroke="#d29922" stroke-width="2.5" stroke-dasharray="4 2"/>
+        <polygon points="215,168 205,175 215,182" fill="#d29922"/>
+        <rect x="232" y="112" width="65" height="22" rx="5" fill="#d29922"/>
+        <text x="240" y="127" class="badge">快速互换</text>
+
+        <!-- Channel B -->
+        <g transform="translate(0, 118)">
+          <rect width="160" height="42" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.2"/>
+          <rect x="10" y="10" width="22" height="22" rx="4" fill="url(#bGrad)"/>
+          <text x="42" y="24" class="card-label">B 通道 (环境光遮蔽)</text>
+          <text x="42" y="36" class="desc" font-size="10px">Channel #2</text>
+        </g>
+
+        <!-- Channel A (Drop Target) -->
+        <g transform="translate(0, 168)">
+          <rect width="160" height="42" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+          <rect x="10" y="10" width="22" height="22" rx="4" fill="url(#aGrad)"/>
+          <text x="42" y="24" class="card-label">A 通道 (透明度)</text>
+          <text x="42" y="36" class="desc" font-size="10px">Channel #3</text>
+          <rect x="118" y="12" width="34" height="18" rx="4" fill="#238636"/>
+          <text x="124" y="25" class="badge">目标</text>
+        </g>
+      </g>
+
+      <!-- Use Case Box -->
+      <g transform="translate(0, 280)">
+        <rect width="377" height="58" rx="8" fill="#161b22" stroke="#30363d"/>
+        <text x="14" y="22" fill="#c9d1d9" font-size="12px" font-weight="600">🎮 游戏贴图打包 (Channel Packing) 杀手级工具：</text>
+        <text x="14" y="42" class="desc" font-size="11px">可秒级完成法线与粗糙度通道对调、RGB 与 Alpha 交换，省去反复拆分合并步骤！</text>
+      </g>
+    </g>
+  </g>
+</svg>

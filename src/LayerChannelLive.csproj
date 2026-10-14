@@ -1,0 +1,78 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PdnRoot Condition="'$(PdnRoot)' == ''">D:\ruanjian\paint.net.5.0.13.install.x64</PdnRoot>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>LayerChannelLive</RootNamespace>
+    <AssemblyName>LayerChannelLive</AssemblyName>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Authors>YD-25</Authors>
+    <Company>YD-25</Company>
+    <Product>LayerChannelLive</Product>
+    <Description>Paint.NET 5.1.12 plugin for live layer channels and edge/corner snapping.</Description>
+    <PackageProjectUrl>https://github.com/YD-25/LayerChannelLive</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/YD-25/LayerChannelLive</RepositoryUrl>
+    <!-- 我们不引用任何 Paint.NET 官方 DLL 作为可分发依赖；全部 Private=False，
+         运行时由 Paint.NET 进程本身提供。 -->
+    <NoWarn>CS7035;MSB3277</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 数据侧只需要这两个：Document / Layer / LayerList / BitmapLayer / Surface
+         全部是 public 类型，编译期即可直接引用，不需要反射。 -->
+    <Reference Include="PaintDotNet.Core">
+      <HintPath>$(PdnRoot)\PaintDotNet.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Data">
+      <HintPath>$(PdnRoot)\PaintDotNet.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Primitives">
+      <HintPath>$(PdnRoot)\PaintDotNet.Primitives.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Base">
+      <HintPath>$(PdnRoot)\PaintDotNet.Base.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <!-- 引导桩需要效果基类与插件发现相关类型 -->
+    <Reference Include="PaintDotNet.ComponentModel">
+      <HintPath>$(PdnRoot)\PaintDotNet.ComponentModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Effects.Core">
+      <HintPath>$(PdnRoot)\PaintDotNet.Effects.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Fundamentals">
+      <HintPath>$(PdnRoot)\PaintDotNet.Fundamentals.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.PropertySystem">
+      <HintPath>$(PdnRoot)\PaintDotNet.PropertySystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.Windows">
+      <HintPath>$(PdnRoot)\PaintDotNet.Windows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PaintDotNet.UI">
+      <HintPath>$(PdnRoot)\PaintDotNet.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="CopyToDist" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildThisFileDirectory)..\dist" />
+  </Target>
+
+</Project>

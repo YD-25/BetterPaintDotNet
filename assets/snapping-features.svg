@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="snapCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#39c5bb"/>
+    </linearGradient>
+    <linearGradient id="snapGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="shadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .title { font-size: 22px; font-weight: 700; fill: #f0f6fc; }
+    .subtitle { font-size: 13px; fill: #8b949e; }
+    .section-title { font-size: 16px; font-weight: 600; fill: #39c5bb; }
+    .card-label { font-size: 13px; font-weight: 600; fill: #c9d1d9; }
+    .badge { font-size: 11px; font-weight: 600; fill: #ffffff; }
+    .desc { font-size: 12px; fill: #8b949e; }
+    .code { font-family: "JetBrains Mono", Consolas, monospace; font-size: 12px; fill: #79c0ff; }
+  </style>
+
+  <!-- Container -->
+  <rect width="960" height="520" rx="16" fill="url(#bgGrad2)" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Top Header -->
+  <g transform="translate(40, 32)">
+    <circle cx="10" cy="10" r="10" fill="#1f6feb"/>
+    <text x="32" y="16" class="title">智能边缘与选区吸附特性 (Magnetic Snapping)</text>
+    <text x="32" y="38" class="subtitle">移动工具与选区交互增强 · 支持画布四角磁性吸附与 2ⁿ 次方纹理尺寸无缝卡位</text>
+  </g>
+
+  <!-- Left Column: Feature 1 - Canvas Corner & Edge Snapping -->
+  <g transform="translate(40, 95)" filter="url(#shadow2)">
+    <rect width="425" height="385" rx="12" fill="url(#cardGrad2)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(24, 24)">
+      <!-- Section Header -->
+      <rect x="0" y="0" width="4" height="18" rx="2" fill="#39c5bb"/>
+      <text x="14" y="15" class="section-title">1. 画布边缘与四个角落磁性吸附</text>
+      <text x="14" y="34" class="desc">拖拽图层或选区接近画布四角或边缘时，自动触发几何磁吸贴靠</text>
+
+      <!-- Canvas Area Visual -->
+      <g transform="translate(20, 52)">
+        <!-- Canvas Background -->
+        <rect width="335" height="220" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+        <text x="14" y="24" fill="#484f58" font-size="11px" font-weight="600">CANVAS (1024 × 1024)</text>
+
+        <!-- 4 Corner Crosshairs -->
+        <!-- Top-Left -->
+        <circle cx="12" cy="12" r="8" fill="none" stroke="#39c5bb" stroke-width="1.5" stroke-dasharray="2 2"/>
+        <circle cx="12" cy="12" r="3" fill="#39c5bb"/>
+        <!-- Top-Right -->
+        <circle cx="323" cy="12" r="8" fill="none" stroke="#484f58" stroke-width="1.2"/>
+        <circle cx="323" cy="12" r="2.5" fill="#484f58"/>
+        <!-- Bottom-Left -->
+        <circle cx="12" cy="208" r="8" fill="none" stroke="#484f58" stroke-width="1.2"/>
+        <circle cx="12" cy="208" r="2.5" fill="#484f58"/>
+        <!-- Bottom-Right -->
+        <circle cx="323" cy="208" r="8" fill="none" stroke="#484f58" stroke-width="1.2"/>
+        <circle cx="323" cy="208" r="2.5" fill="#484f58"/>
+
+        <!-- Magnetic Snap Lines (Glowing Cyan) -->
+        <line x1="0" y1="12" x2="335" y2="12" stroke="#39c5bb" stroke-width="1.5" stroke-dasharray="4 3" filter="url(#glowFilter)"/>
+        <line x1="12" y1="0" x2="12" y2="220" stroke="#39c5bb" stroke-width="1.5" stroke-dasharray="4 3" filter="url(#glowFilter)"/>
+
+        <!-- Snapped Layer Card -->
+        <g transform="translate(12, 12)">
+          <rect width="140" height="100" rx="4" fill="#1f6feb" fill-opacity="0.25" stroke="#58a6ff" stroke-width="1.8"/>
+          <text x="14" y="26" fill="#f0f6fc" font-size="12px" font-weight="600">移动对象 / 图层</text>
+          <text x="14" y="44" fill="#79c0ff" font-size="10px">X: 0 px  |  Y: 0 px</text>
+
+          <!-- Magnetic Wave Icon -->
+          <path d="M 12 70 A 10 10 0 0 1 22 80 M 12 62 A 18 18 0 0 1 30 80" fill="none" stroke="#39c5bb" stroke-width="2"/>
+          <circle cx="12" cy="80" r="3" fill="#39c5bb"/>
+        </g>
+
+        <!-- Snapped Badge Tooltip -->
+        <g transform="translate(165, 30)">
+          <rect width="150" height="48" rx="6" fill="#161b22" stroke="#39c5bb" stroke-width="1.2" filter="url(#shadow2)"/>
+          <circle cx="16" cy="18" r="5" fill="#39c5bb"/>
+          <text x="28" y="22" fill="#39c5bb" font-size="11.5px" font-weight="bold">已对齐左上角</text>
+          <text x="12" y="38" fill="#8b949e" font-size="10px">自动贴靠四角与边缘 0px</text>
+        </g>
+      </g>
+
+      <!-- Bottom Hint -->
+      <g transform="translate(0, 305)">
+        <rect width="377" height="32" rx="6" fill="#161b22" stroke="#30363d"/>
+        <circle cx="16" cy="16" r="6" fill="#39c5bb" fill-opacity="0.3"/>
+        <text x="13" y="20" fill="#39c5bb" font-size="11px" font-weight="bold">✓</text>
+        <text x="32" y="20" class="desc" font-size="11.5px">支持画布4个直角及四条边缘，像素级严丝合缝无需肉眼微调。</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: Feature 2 - Power of Two Snapping -->
+  <g transform="translate(495, 95)" filter="url(#shadow2)">
+    <rect width="425" height="385" rx="12" fill="url(#cardGrad2)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(24, 24)">
+      <!-- Section Header -->
+      <rect x="0" y="0" width="4" height="18" rx="2" fill="#3fb950"/>
+      <text x="14" y="15" class="section-title">2. 拖拽选区角点吸附 2ⁿ 次方</text>
+      <text x="14" y="34" class="desc">调整选区手柄缩放时，宽高智能吸附贴合 2 的 n 次方纹理尺寸</text>
+
+      <!-- Power-of-2 Visual Diagram -->
+      <g transform="translate(10, 52)">
+        <rect width="355" height="220" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+        <!-- Power of 2 Grid Guides -->
+        <!-- 128 boundary -->
+        <rect x="15" y="15" width="70" height="70" fill="none" stroke="#30363d" stroke-dasharray="2 2"/>
+        <text x="20" y="30" fill="#484f58" font-size="10px">128 (2⁷)</text>
+
+        <!-- 256 boundary -->
+        <rect x="15" y="15" width="130" height="130" fill="none" stroke="#30363d" stroke-dasharray="3 3"/>
+        <text x="90" y="30" fill="#484f58" font-size="10px">256 (2⁸)</text>
+
+        <!-- 512 Snapped Boundary (Active Marquee) -->
+        <rect x="15" y="15" width="220" height="160" fill="#238636" fill-opacity="0.12" stroke="#3fb950" stroke-width="2" stroke-dasharray="5 3"/>
+        
+        <!-- Selection Handles -->
+        <rect x="10" y="10" width="10" height="10" rx="2" fill="#ffffff" stroke="#30363d"/>
+        <rect x="230" y="10" width="10" height="10" rx="2" fill="#ffffff" stroke="#30363d"/>
+        <rect x="10" y="170" width="10" height="10" rx="2" fill="#ffffff" stroke="#30363d"/>
+        
+        <!-- Dragged Corner Handle (Bottom-Right) -->
+        <g transform="translate(230, 170)">
+          <!-- Snap pulse circle -->
+          <circle cx="5" cy="5" r="14" fill="#3fb950" fill-opacity="0.25" filter="url(#glowFilter)"/>
+          <circle cx="5" cy="5" r="6" fill="#3fb950" stroke="#ffffff" stroke-width="2"/>
+          
+          <!-- Cursor Arrow -->
+          <polygon points="12,12 24,20 18,21 21,28 17,29 14,23 9,25" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+        </g>
+
+        <!-- Power-of-2 Milestones Badge Bar -->
+        <g transform="translate(15, 188)">
+          <rect width="325" height="24" rx="4" fill="#161b22" stroke="#21262d"/>
+          <text x="8" y="16" fill="#8b949e" font-size="10px">预设阶梯吸附：</text>
+          <text x="85" y="16" fill="#484f58" font-size="10px">64</text>
+          <text x="115" y="16" fill="#484f58" font-size="10px">128</text>
+          <text x="150" y="16" fill="#484f58" font-size="10px">256</text>
+          <rect x="180" y="4" width="48" height="16" rx="3" fill="#238636"/>
+          <text x="185" y="16" fill="#ffffff" font-size="10px" font-weight="bold">512 (2⁹)</text>
+          <text x="240" y="16" fill="#484f58" font-size="10px">1024</text>
+          <text x="280" y="16" fill="#484f58" font-size="10px">2048</text>
+        </g>
+
+        <!-- Live Floating HUD Tooltip -->
+        <g transform="translate(135, 75)">
+          <rect width="180" height="52" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow2)"/>
+          <rect x="8" y="8" width="8" height="8" rx="2" fill="#3fb950"/>
+          <text x="22" y="16" fill="#3fb950" font-size="11px" font-weight="bold">2ⁿ 次方吸附已锁定</text>
+          <text x="22" y="32" class="code" font-size="13px" font-weight="bold">512 × 512 px</text>
+          <text x="22" y="45" fill="#8b949e" font-size="9.5px">Standard Texture Power-of-Two</text>
+        </g>
+      </g>
+
+      <!-- Bottom Hint -->
+      <g transform="translate(0, 305)">
+        <rect width="377" height="32" rx="6" fill="#161b22" stroke="#30363d"/>
+        <circle cx="16" cy="16" r="6" fill="#3fb950" fill-opacity="0.3"/>
+        <text x="13" y="20" fill="#3fb950" font-size="11px" font-weight="bold">✓</text>
+        <text x="32" y="20" class="desc" font-size="11.5px">游戏贴图与DDS必备规范，拖拽选区角点自动卡位无需手工换算。</text>
+      </g>
+    </g>
+  </g>
+</svg>

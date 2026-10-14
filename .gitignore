@@ -1,0 +1,17 @@
+## Visual Studio / .NET Build Artifacts
+[Bb]in/
+[Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+.idea/
+.vscode/
+
+## Logs
+*.log
+*install.log
+
+## Release Packages (generated zips)
+*.zip
+*.nupkg
