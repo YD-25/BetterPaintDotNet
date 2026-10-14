@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title LayerChannelLive 一键卸载器
+title 更好的Paint.NET 一键卸载器
 setlocal EnableExtensions
 
 set "PS1=%~dp0uninstall.ps1"

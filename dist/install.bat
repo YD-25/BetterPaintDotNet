@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title LayerChannelLive 一键安装器
+title 更好的Paint.NET 一键安装器
 setlocal EnableExtensions
 
 set "PS1=%~dp0install.ps1"

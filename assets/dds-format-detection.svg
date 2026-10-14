@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="ddsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="ddsCard" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="ddsBadgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1f6feb"/>
+      <stop offset="100%" stop-color="#58a6ff"/>
+    </linearGradient>
+    <linearGradient id="ddsGreenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#238636"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+    <filter id="ddsShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
+    .title { font-size: 20px; font-weight: 700; fill: #f0f6fc; }
+    .subtitle { font-size: 13px; fill: #8b949e; }
+    .section-title { font-size: 15px; font-weight: 600; fill: #58a6ff; }
+    .card-label { font-size: 12px; font-weight: 600; fill: #c9d1d9; }
+    .badge { font-size: 11px; font-weight: 600; fill: #ffffff; }
+    .desc { font-size: 11.5px; fill: #8b949e; }
+    .code { font-family: "JetBrains Mono", Consolas, monospace; font-size: 11px; fill: #79c0ff; }
+  </style>
+
+  <!-- Container -->
+  <rect width="960" height="420" rx="16" fill="url(#ddsBg)" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Top Header -->
+  <g transform="translate(40, 28)">
+    <circle cx="10" cy="10" r="10" fill="#8957e5"/>
+    <text x="32" y="15" class="title">底部栏 DDS 格式即时识别与图层联动</text>
+    <text x="32" y="35" class="subtitle">图层面板底部常驻状态条 · 切换图层自动无缝展示对应源文件的真实 DDS 压缩编码</text>
+  </g>
+
+  <!-- Left: Visual Layer Switch & Footer Display -->
+  <g transform="translate(40, 85)" filter="url(#ddsShadow)">
+    <rect width="430" height="305" rx="12" fill="url(#ddsCard)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(20, 20)">
+      <rect x="0" y="0" width="4" height="16" rx="2" fill="#58a6ff"/>
+      <text x="12" y="13" class="section-title">图层面板效果：随选即显</text>
+      <text x="12" y="30" class="desc">点击切换图层，底部常驻栏毫秒级响应并更新源文件格式</text>
+
+      <!-- Layer Stack Representation -->
+      <g transform="translate(0, 42)">
+        <rect width="390" height="150" rx="8" fill="#0d1117" stroke="#30363d"/>
+
+        <!-- Layer 1 (Selected DDS: NormalMap) -->
+        <g transform="translate(10, 10)">
+          <rect width="370" height="38" rx="6" fill="#1f6feb" fill-opacity="0.2" stroke="#58a6ff" stroke-width="1.5"/>
+          <rect x="8" y="7" width="24" height="24" rx="4" fill="#58a6ff" fill-opacity="0.3"/>
+          <text x="40" y="23" fill="#ffffff" font-size="12px" font-weight="600">Character_NormalMap.dds</text>
+          <rect x="270" y="9" width="90" height="20" rx="4" fill="#238636"/>
+          <text x="278" y="23" class="badge">当前选中图层</text>
+        </g>
+
+        <!-- Layer 2 (Unselected DDS: Diffuse) -->
+        <g transform="translate(10, 54)">
+          <rect width="370" height="36" rx="6" fill="#161b22" stroke="#21262d"/>
+          <rect x="8" y="6" width="24" height="24" rx="4" fill="#30363d"/>
+          <text x="40" y="22" class="desc" font-size="12px">Character_Diffuse.dds</text>
+          <text x="290" y="22" fill="#8b949e" font-size="11px">BC7 格式</text>
+        </g>
+
+        <!-- Layer 3 (Background) -->
+        <g transform="translate(10, 96)">
+          <rect width="370" height="36" rx="6" fill="#161b22" stroke="#21262d"/>
+          <rect x="8" y="6" width="24" height="24" rx="4" fill="#30363d"/>
+          <text x="40" y="22" class="desc" font-size="12px">Background_Base.dds</text>
+          <text x="280" y="22" fill="#8b949e" font-size="11px">BC1 / DXT1</text>
+        </g>
+      </g>
+
+      <!-- Panel Footer Bar (Real UI Simulation) -->
+      <g transform="translate(0, 202)">
+        <rect width="390" height="42" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.2"/>
+        
+        <!-- Status Indicator Pill -->
+        <circle cx="20" cy="21" r="5" fill="#3fb950"/>
+        <text x="32" y="25" fill="#8b949e" font-size="11px">图层源格式：</text>
+
+        <!-- Dynamic Badge -->
+        <rect x="105" y="9" width="165" height="24" rx="5" fill="url(#ddsBadgeGrad)"/>
+        <text x="116" y="25" class="badge" font-size="11.5px">DDS · BC5（线性，ATI2）</text>
+
+        <!-- Details Tooltip hint -->
+        <rect x="280" y="9" width="100" height="24" rx="5" fill="#21262d"/>
+        <text x="290" y="25" fill="#79c0ff" font-size="10.5px">法线贴图专用 🔍</text>
+      </g>
+
+      <!-- Tooltip Floating Card -->
+      <g transform="translate(45, 222)">
+        <rect width="300" height="30" rx="6" fill="#0d1117" stroke="#30363d" filter="url(#ddsShadow)"/>
+        <text x="12" y="19" class="code" font-size="10px">FourCC=ATI2 · 尺寸 2048×2048 · 原文件编码</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: Technical Principle / How It Works -->
+  <g transform="translate(495, 85)" filter="url(#ddsShadow)">
+    <rect width="425" height="305" rx="12" fill="url(#ddsCard)" stroke="#30363d" stroke-width="1.2"/>
+    
+    <g transform="translate(22, 20)">
+      <rect x="0" y="0" width="4" height="16" rx="2" fill="#3fb950"/>
+      <text x="12" y="13" class="section-title">核心实现原理 (How It Works)</text>
+      <text x="12" y="30" class="desc">解构 Paint.NET 丢失原始压缩格式的痛点，轻量高效直读</text>
+
+      <!-- Step 1 -->
+      <g transform="translate(0, 45)">
+        <circle cx="12" cy="12" r="12" fill="#1f6feb" fill-opacity="0.2"/>
+        <text x="8" y="16" fill="#58a6ff" font-size="12px" font-weight="bold">1</text>
+        <text x="32" y="13" class="card-label">图层路径智能解析 (LayerFilePathResolver)</text>
+        <text x="32" y="28" class="desc">Paint.NET 导入文件时会以文件名命名图层。插件通过图层弱引用缓存与最近导入路径树，毫秒级反查出磁盘上的源 DDS 文件绝对路径。</text>
+      </g>
+
+      <!-- Step 2 -->
+      <g transform="translate(0, 118)">
+        <circle cx="12" cy="12" r="12" fill="#238636" fill-opacity="0.2"/>
+        <text x="8" y="16" fill="#3fb950" font-size="12px" font-weight="bold">2</text>
+        <text x="32" y="13" class="card-label">直读 148 字节文件头 (Zero-Cost Stream)</text>
+        <text x="32" y="28" class="desc">无需重新解码庞大图像数据，仅通过共享读模式直读前 148 字节二进制头，耗时 &lt;0.05ms，零内存占用，绝不与外部软件锁冲突。</text>
+      </g>
+
+      <!-- Step 3 -->
+      <g transform="translate(0, 192)">
+        <circle cx="12" cy="12" r="12" fill="#8957e5" fill-opacity="0.2"/>
+        <text x="8" y="16" fill="#bc8cff" font-size="12px" font-weight="bold">3</text>
+        <text x="32" y="13" class="card-label">DirectX / DXGI 规范无损解码 (ImageFormatReader)</text>
+        <text x="32" y="28" class="desc">精准匹配 DDS_HEADER 与 DX10 扩展，精确辨析 BC1~BC7、DXGI_FORMAT 及未压缩位域掩码（如 B8G8R8A8），杜绝任何猜测试探。</text>
+      </g>
+
+      <!-- Bottom Principle Summary -->
+      <g transform="translate(0, 252)">
+        <rect width="380" height="24" rx="4" fill="#161b22" stroke="#21262d"/>
+        <text x="10" y="16" fill="#79c0ff" font-size="10.5px">⚡ 原理亮点：绕开内存解压损耗，直读磁盘头，真正还原真实压制格式！</text>
+      </g>
+    </g>
+  </g>
+</svg>

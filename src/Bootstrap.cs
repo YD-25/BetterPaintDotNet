@@ -35,7 +35,7 @@ public sealed class LayerChannelLiveBootstrapEffect
 {
     public LayerChannelLiveBootstrapEffect()
         : base(
-            "Live Layer Channels (常驻)",
+            "更好的Paint.NET (常驻)",
             null,
             BitmapEffectOptions.Create() with { IsConfigurable = false })
     {
@@ -109,7 +109,7 @@ internal static class Boot
 /// <summary>插件支持信息（Paint.NET 用来在插件列表里显示）。</summary>
 public sealed class LayerChannelLiveSupportInfo : IPluginSupportInfo
 {
-    public string? DisplayName => "Live Layer Channels & Snapping";
+    public string? DisplayName => "更好的Paint.NET";
 
     public string? Author => "YD-25";
 

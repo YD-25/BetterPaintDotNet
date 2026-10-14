@@ -16,8 +16,8 @@
     <FileVersion>1.0.0.0</FileVersion>
     <Authors>YD-25</Authors>
     <Company>YD-25</Company>
-    <Product>LayerChannelLive</Product>
-    <Description>Paint.NET 5.1.12 plugin for live layer channels and edge/corner snapping.</Description>
+    <Product>更好的Paint.NET</Product>
+    <Description>专为 Paint.NET 5.1.12 打造的深度增强插件：图层通道深度编辑、智能边缘与选区吸附、DDS源格式即时识别。</Description>
     <PackageProjectUrl>https://github.com/YD-25/LayerChannelLive</PackageProjectUrl>
     <RepositoryUrl>https://github.com/YD-25/LayerChannelLive</RepositoryUrl>
     <!-- 我们不引用任何 Paint.NET 官方 DLL 作为可分发依赖；全部 Private=False，

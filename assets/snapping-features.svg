@@ -43,7 +43,7 @@
   <!-- Top Header -->
   <g transform="translate(40, 32)">
     <circle cx="10" cy="10" r="10" fill="#1f6feb"/>
-    <text x="32" y="16" class="title">智能边缘与选区吸附特性 (Magnetic Snapping)</text>
+    <text x="32" y="16" class="title">更好的Paint.NET · 智能边缘与选区吸附特性</text>
     <text x="32" y="38" class="subtitle">移动工具与选区交互增强 · 支持画布四角磁性吸附与 2ⁿ 次方纹理尺寸无缝卡位</text>
   </g>
 

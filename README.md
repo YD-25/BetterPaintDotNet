@@ -1,4 +1,4 @@
-# LayerChannelLive
+# 更好的Paint.NET (Better Paint.NET)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Paint.NET-5.1.12-blue?style=flat-square&logo=paint.net" alt="Paint.NET 5.1.12">
@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/github/v/release/YD-25/LayerChannelLive?style=flat-square" alt="Release">
 </p>
 
-**LayerChannelLive** 是专为 **Paint.NET 5.1.12** 打造的高性能增强扩展。无需弹窗与多余步骤，原生接管图层面板与移动选区，提供**图层通道深度编辑**与**画布边缘智能吸附**两大核心能力。
+**更好的Paint.NET** 是专为 **Paint.NET 5.1.12** 深度定制的体验增强扩展。无需弹窗与繁琐切换，原生接管图层面板与移动选区，带来三大核心功能：**图层实时通道编辑**、**底部栏 DDS 源格式精准识别** 以及 **画布边缘与选区智能磁吸**。
 
 ---
 
@@ -15,7 +15,7 @@
 
 1. 前往 [Releases](https://github.com/YD-25/LayerChannelLive/releases) 下载最新版本的安装包 `LayerChannelLive-v1.0.0-InstallPackage.zip` 并解压。
 2. 双击运行 **`install.bat`** 即可自动完成探测、部署并启动 Paint.NET。
-3. 打开 Paint.NET 即可直接体验增强的图层通道与吸附功能。
+3. 打开 Paint.NET 即可直接体验全新的图层通道、DDS 识别与智能吸附功能。
 4. 如需卸载，随时双击运行 **`uninstall.bat`**，将安全自动清理相关组件。
 
 ---
@@ -36,7 +36,28 @@
 
 ---
 
-## 🧲 核心特性二：画布边缘与选区智能吸附
+## 🔍 核心特性二：底部栏 DDS 格式即时识别与图层联动
+
+图层面板最底部新增常驻状态栏，解决 Paint.NET 导入 DDS 后压缩格式丢失、无法辨别原贴图编码的痛点。
+
+![DDS格式识别与原理](assets/dds-format-detection.svg)
+
+### 1. 随选即变：切换图层自动刷新格式
+- **实时显示 DDS 编码**：在图层列表中选中任意 DDS 图层，底部状态栏即刻呈现该图层对应源文件的具体压缩规范（如 `DDS · BC1（线性，DXT1）`、`DDS · BC3（线性，DXT5）`、`DDS · BC5（线性，ATI2 法线）`、`DDS · BC7（线性）`、`DDS · B8G8R8A8（32位未压缩）` 等）。
+- **技术详情悬浮提示**：鼠标悬停在底部徽标上，即可通过浮动 ToolTip 查看完整源文件路径、文件大小、FourCC 码以及 DXGI 格式标识。
+
+### 2. 底层原理：如何实现极速精准读取？
+传统的 Paint.NET 在导入 DDS 图片时，会把像素解码成内存中的纯 RGBA 位图（Surface），原有的压缩格式与文件头信息在内存对象中已被全部丢弃。本插件采用三步高效机制无损还原真实格式：
+1. **图层源文件路径智能逆向解析 (`LayerFilePathResolver`)**：  
+   Paint.NET 在导入文件新建图层时，会将图层命名为 `{文件名去掉扩展名}: {原图层名}`。插件通过弱引用哈希缓存（`ConditionalWeakTable`）以及会话期间记录的最近导入文件历史树，毫秒级反向定位图层对应的磁盘源文件路径。
+2. **极速直读前 148 字节文件头 (`Zero-Cost Header Stream`)**：  
+   插件无需重新解码数十兆甚至上百兆的庞大纹理像素，仅以 `FileShare.ReadWrite` 共享只读流直接抓取文件头部的**前 148 字节**（耗时 `<0.05ms`，零内存损耗，绝不锁死文件）。
+3. **DirectX 官方规范精准解码 (`ImageFormatReader`)**：  
+   严格依据微软 DirectX 规范解析二进制 `DDS_HEADER`、`DDS_PIXELFORMAT` 及现代 DX10 扩展结构头，精准还原 FourCC 与 `DXGI_FORMAT` 编码，杜绝任何猜测或试探。
+
+---
+
+## 🧲 核心特性三：画布边缘与选区智能磁吸
 
 为移动工具与选区交互注入高精度磁吸对齐能力，告别肉眼像素对齐。
 

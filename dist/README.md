@@ -1,4 +1,4 @@
-# LayerChannelLive 一键安装与使用
+# 更好的Paint.NET 一键安装与使用
 
 ## 一键安装
 双击运行 **`install.bat`**。它会自动执行：

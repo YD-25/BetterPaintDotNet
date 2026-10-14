@@ -52,7 +52,7 @@
   <!-- Top Header -->
   <g transform="translate(40, 32)">
     <circle cx="10" cy="10" r="10" fill="#238636"/>
-    <text x="32" y="16" class="title">图层与实时通道特性 (Layer &amp; Live Channels)</text>
+    <text x="32" y="16" class="title">更好的Paint.NET · 图层与实时通道特性</text>
     <text x="32" y="38" class="subtitle">深度接管 Paint.NET 原生图层窗口 · 支持单通道效果滤镜与通道自由拖拽排序</text>
   </g>
 
