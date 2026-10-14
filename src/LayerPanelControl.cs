@@ -2278,6 +2278,35 @@ if (documentChanged)
                     this.SelectLayer(layers[idx]);
                 }
             }
+            else if (text.StartsWith("CAPTURE_UI:"))
+            {
+                string tag = text.Substring("CAPTURE_UI:".Length).Trim();
+                string vDir = System.IO.Path.Combine(System.IO.Path.GetTempPath(), "LCV-verify");
+                System.IO.Directory.CreateDirectory(vDir);
+
+                try
+                {
+                    Form? layersForm = this.FindForm();
+                    if (layersForm != null && layersForm.Width > 0 && layersForm.Height > 0)
+                    {
+                        using var bmpForm = new Bitmap(layersForm.Width, layersForm.Height);
+                        layersForm.DrawToBitmap(bmpForm, new Rectangle(0, 0, layersForm.Width, layersForm.Height));
+                        bmpForm.Save(System.IO.Path.Combine(vDir, $"real_layers_window_{tag}.png"), System.Drawing.Imaging.ImageFormat.Png);
+                    }
+                }
+                catch { }
+
+                try
+                {
+                    using var bmpPanel = new Bitmap(this.Width, this.Height);
+                    this.DrawToBitmap(bmpPanel, new Rectangle(0, 0, this.Width, this.Height));
+                    bmpPanel.Save(System.IO.Path.Combine(vDir, $"real_panel_{tag}.png"), System.Drawing.Imaging.ImageFormat.Png);
+                }
+                catch { }
+
+                System.IO.File.WriteAllText(System.IO.Path.Combine(vDir, $"capture_done_{tag}.txt"), "DONE");
+                Boot.Log($"[自测] CAPTURE_UI 完成并写入标记: {tag}");
+            }
             else if (text.StartsWith("IMPORT_FILE:"))
             {
                 string importPath = text.Substring("IMPORT_FILE:".Length).Trim();
