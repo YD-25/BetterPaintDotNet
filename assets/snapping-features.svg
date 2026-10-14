@@ -55,7 +55,10 @@
       <!-- Section Header -->
       <rect x="0" y="0" width="4" height="18" rx="2" fill="#39c5bb"/>
       <text x="14" y="15" class="section-title">1. 画布边缘与四个角落磁性吸附</text>
-      <text x="14" y="34" class="desc">拖拽图层或选区接近画布四角或边缘时，自动触发几何磁吸贴靠</text>
+      <!-- Key Badge -->
+      <rect x="268" y="0" width="108" height="20" rx="4" fill="#39c5bb" fill-opacity="0.18" stroke="#39c5bb" stroke-width="1.2"/>
+      <text x="276" y="14" fill="#39c5bb" font-size="11px" font-weight="bold">按住 Shift 触发</text>
+      <text x="14" y="34" class="desc">按住 Shift 拖动图层接近画布四角或边缘时，自动触发几何磁吸贴靠</text>
 
       <!-- Canvas Area Visual -->
       <g transform="translate(20, 52)">
@@ -119,7 +122,10 @@
       <!-- Section Header -->
       <rect x="0" y="0" width="4" height="18" rx="2" fill="#3fb950"/>
       <text x="14" y="15" class="section-title">2. 拖拽选区角点吸附 2ⁿ 次方</text>
-      <text x="14" y="34" class="desc">调整选区手柄缩放时，宽高智能吸附贴合 2 的 n 次方纹理尺寸</text>
+      <!-- Key Badge -->
+      <rect x="268" y="0" width="108" height="20" rx="4" fill="#3fb950" fill-opacity="0.18" stroke="#3fb950" stroke-width="1.2"/>
+      <text x="276" y="14" fill="#3fb950" font-size="11px" font-weight="bold">按住 Shift 触发</text>
+      <text x="14" y="34" class="desc">按住 Shift 拖拽角点手柄缩放时，宽高智能吸附贴合 2 的 n 次方纹理尺寸</text>
 
       <!-- Power-of-2 Visual Diagram -->
       <g transform="translate(10, 52)">
@@ -171,7 +177,7 @@
           <rect x="8" y="8" width="8" height="8" rx="2" fill="#3fb950"/>
           <text x="22" y="16" fill="#3fb950" font-size="11px" font-weight="bold">2ⁿ 次方吸附已锁定</text>
           <text x="22" y="32" class="code" font-size="13px" font-weight="bold">512 × 512 px</text>
-          <text x="22" y="45" fill="#8b949e" font-size="9.5px">Standard Texture Power-of-Two</text>
+          <text x="22" y="45" fill="#8b949e" font-size="9.5px">按住 Shift 等比锁定 2ⁿ</text>
         </g>
       </g>
 
@@ -180,7 +186,7 @@
         <rect width="377" height="32" rx="6" fill="#161b22" stroke="#30363d"/>
         <circle cx="16" cy="16" r="6" fill="#3fb950" fill-opacity="0.3"/>
         <text x="13" y="20" fill="#3fb950" font-size="11px" font-weight="bold">✓</text>
-        <text x="32" y="20" class="desc" font-size="11.5px">游戏贴图与DDS必备规范，拖拽选区角点自动卡位无需手工换算。</text>
+        <text x="32" y="20" class="desc" font-size="11.5px">按住 Shift 自动卡位 2ⁿ 阶梯，配合 Alt 可基于中心对称缩放。</text>
       </g>
     </g>
   </g>
