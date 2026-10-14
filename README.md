@@ -24,7 +24,7 @@
 
 深度接管 Paint.NET 原生图层列表，在当前选中图层下方展开直观的 R / G / B / A 四通道视图。
 
-![图层与通道功能](assets/channel-features.svg)
+![图层与通道功能演示](assets/channel-features.gif)
 
 ### 1. 原生效果/调整直接作用于通道
 - **单通道独立滤镜**：点击任意通道（R/G/B/A）即可进入该通道视图。在 Paint.NET 顶部菜单执行任意原生效果或调整控件（如反色、曲线、色阶、高斯模糊、噪点添加等），效果将**直接精确烘焙到当前所选通道**中。
@@ -40,7 +40,7 @@
 
 图层面板最底部新增常驻状态栏，解决 Paint.NET 导入 DDS 后压缩格式丢失、无法辨别原贴图编码的痛点。
 
-![DDS格式识别与原理](assets/dds-format-detection.svg)
+![DDS格式识别与原理演示](assets/dds-format-detection.gif)
 
 ### 1. 随选即变：切换图层自动刷新格式
 - **实时显示 DDS 编码**：在图层列表中选中任意 DDS 图层，底部状态栏即刻呈现该图层对应源文件的具体压缩规范（如 `DDS · BC1（线性，DXT1）`、`DDS · BC3（线性，DXT5）`、`DDS · BC5（线性，ATI2 法线）`、`DDS · BC7（线性）`、`DDS · B8G8R8A8（32位未压缩）` 等）。
@@ -61,7 +61,7 @@
 
 为移动工具与选区交互注入高精度磁吸对齐能力，告别肉眼像素对齐。
 
-![智能吸附功能](assets/snapping-features.svg)
+![智能吸附功能演示](assets/snapping-features.gif)
 
 > ### ⌨️ 吸附快捷键说明
 > | 快捷键操作 | 适用场景 | 功能说明 |
